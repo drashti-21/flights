@@ -33,7 +33,7 @@ def get_flights_json(flight_type):
         'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36',
     }
     response = requests.get('https://airport.com.pl/loty/tablica-przylotow-odlotow/', cookies=cookies, headers=headers)
-    print(response.status_code)
+    # print(response.status_code)
     if response.status_code != 200:
         return json.dumps({"error": "Failed to fetch data"}, ensure_ascii=False)
     html_content = response.text
