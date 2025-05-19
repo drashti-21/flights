@@ -54,15 +54,8 @@ def get_flights_json(flight_type):
             # Remove zero if the third letter is "0"
             if len(flight_number) > 2 and flight_number[2] == "0":
                 flight_number = flight_number[:2] + flight_number[3:]
-            # Convert time to ISO 8601 format if possible
-            if time_str:
-                try:
-                    dt = datetime.strptime(f"{flight_date} {time_str}", "%Y-%m-%d %H:%M")
-                    scheduled_time = dt.strftime("%Y-%m-%dT%H:%M:00.000")
-                except Exception:
-                    scheduled_time = ""
-            else:
-                scheduled_time = ""
+            # Use normal time string, else ""
+            scheduled_time = time_str if time_str else ""
             arrival_airport = direction if direction else "Unknown Airport"
             flights.append({
                 "flight_number": flight_number,
