@@ -52,10 +52,7 @@ def get_modlin_flights(flight_type="arrivals"):
         godzina = row.xpath('./td[3]/text()').get(default='').strip()
         status = row.xpath('./td[4]//div[@class="status-flight"]/text()').get(default='').strip()
         if godzina:
-            try:
-                scheduled_time = datetime.strptime(f"{today} {godzina}", "%Y-%m-%d %H:%M").strftime("%Y-%m-%dT%H:%M:00.000")
-            except Exception:
-                scheduled_time = ""
+            scheduled_time = godzina
         else:
             scheduled_time = ""
         if numer_lotu:
@@ -76,10 +73,7 @@ def get_modlin_flights(flight_type="arrivals"):
         godzina = row.xpath('./td[3]/text()').get(default='').strip()
         status = row.xpath('./td[4]//div[@class="status-flight"]/text()').get(default='').strip()
         if godzina:
-            try:
-                scheduled_time = datetime.strptime(f"{today} {godzina}", "%Y-%m-%d %H:%M").strftime("%Y-%m-%dT%H:%M:00.000")
-            except Exception:
-                scheduled_time = ""
+            scheduled_time = godzina
         else:
             scheduled_time = ""
         if numer_lotu:
